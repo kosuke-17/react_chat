@@ -11,7 +11,7 @@ const App = () => {
             projectID="05780816-ae21-4478-8f27-b8a3d0840114"
             userName="javascriptmastary"
             userSecret="123123"
-            renderChatfeed= {(charAppProps) => <ChatFeed {...chatAppProps} />}
+            renderChatFeed= {(reactChatProps) => <ChatFeed {...reactChatProps} />}
         />
     );
 }
