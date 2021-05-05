@@ -1,18 +1,18 @@
-import MessageFrom from './MessageForm';
+import MessageForm from './MessageForm';
 import MyMessage from './MyMessage';
-import TheirrMessage from './TheirMessage';
+import TheirMessage from './TheirMessage';
 
 const ChatFeed = (props) => {
-  const { chats, activeChat, UserName, messages } = props;
+  const { chats, activeChat, userName, messages } = props;
 
   const chat = chats && chats[activeChat];
 
   const renderMessages = () => {
     const keys = Object.keys(messages);
 
-    return keys.map((key, index) = () => {
+    return keys.map((key, index) => {
       const message = messages[key];
-      const lastMessageKey = index === 0 ? null : key[index - 1];
+      const lastMessageKey = index === 0 ? null : keys[index - 1];
       const isMyMessage = userName === message.sender.username;
 
       return (
@@ -34,9 +34,11 @@ const ChatFeed = (props) => {
 
   renderMessages()
 
+  if (!chat) return 'loading...';
+
 
     return (
-      <div classNme="chat-feed">
+      <div className="chat-feed">
         <div className="chat-title-container">
           <div className="chat-title">{chat.title}</div>
           <div className="chat-subtitle">
